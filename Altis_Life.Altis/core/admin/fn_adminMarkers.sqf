@@ -2,25 +2,23 @@
 /*
 	File: fn_adminMarkers.sqf
 	Sourced from Lystics Player Markers Loop
-	Author:
-
-	Description:
-
 */
-private["_PlayerMarkers","_FinishedLoop"];
-if(FETCH_CONST(life_adminlevel) < 4) exitWith {closeDialog 0; hint localize "STR_ANOTF_ErrorLevel";};
+if(FETCH_CONST(life_adminlevel) == 0) exitWith {closeDialog 0; hint localize "STR_ANOTF_ErrorLevel";};
 life_markers = !life_markers;
-if(life_markers) then {
-	_PlayerMarkers = [];
-	_FinishedLoop = false;
+if(life_markers) then 
+{
+	PlayerMarkers = [];
+	FinishedLoop = false;
 	hint localize "STR_ANOTF_MEnabled";
-	while{life_markers} do {
+	while{life_markers} do 
+	{
 		{
-			if !(_x in allUnits) then {
+			if !(_x in allUnits) then 
+			{
 				deleteMarkerLocal str _x;
 			};
-		} forEach _PlayerMarkers;
-		_PlayerMarkers = [];
+		} forEach PlayerMarkers;
+		PlayerMarkers = [];
 		{
 			if(alive _x && isplayer _x && side _x == west && playerSide != west) then {
 				deleteMarkerLocal str _x;
@@ -54,15 +52,20 @@ if(life_markers) then {
 					_PlayerMarkers = _PlayerMarkers + [_x];
 				};
 			};
-	} forEach allUnits;
-	sleep 0.2;
-};
-_FinishedLoop = true;
-} else {
-	if(isNil "_FinishedLoop") exitWith {};
+		} forEach allUnits;
+		sleep 0.2;
+	};
+	FinishedLoop = true;
+} 
+	else 
+{
+	if(isNil "FinishedLoop") exitWith 
+    {
+        hint "Error!";
+    };
 	hint localize "STR_ANOTF_MDisabled";
-	waitUntil{_FinishedLoop};
+	waitUntil{FinishedLoop};
 	{
 		deleteMarkerLocal str _x;
-	} forEach _PlayerMarkers;
+	} forEach PlayerMarkers;	
 };
