@@ -126,7 +126,8 @@ class Clothing {
             { "NONE", "Remove Hat", 0, { "", "", -1 } },
             { "H_HelmetB_plain_mcamo", "", 75, { "life_coplevel", "SCALAR", 1 } },
             { "H_MilCap_mcamo", "", 100, { "life_coplevel", "SCALAR", 2 } },
-            { "H_Booniehat_mcamo", "", 120, { "life_coplevel", "SCALAR", 1 } }
+            { "H_Booniehat_mcamo", "", 120, { "life_coplevel", "SCALAR", 1 } },
+            { "H_CrewHelmetHeli_B", "Gas mask", 500, { "life_coplevel", "SCALAR", 3 } }
         };
         goggles[] = {
             { "NONE", "Remove Glasses", 0, { "", "", -1 } },

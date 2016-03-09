@@ -284,6 +284,10 @@ class Life_Client_Core
 		class ticketPaid {};
 		class containerInvSearch {};
 		class wantedGrab {};
+        class smokeClear {};
+        class smokeNearrab {};
+        class inSmoke {};
+        
 	};
 
 	class Gangs
