@@ -119,6 +119,19 @@ LIFE_ID_RevealObjects = ["LIFE_RevealObjects","onEachFrame","life_fnc_revealObje
 player SVAR ["steam64ID",steamid];
 player SVAR ["realname",profileName,true];
 
+if(EQUAL(LIFE_SETTINGS(getNumber,"TearGasEnabled"),1)) then
+{
+    smokeNearSEHID = [ "smokeNear", "onEachFrame", 
+    {
+
+        if ( !( player getVariable [ "inSmoke", false ] ) && { [] call life_fnc_smokeNear } ) then 
+        {
+            _inSmokeThread = [] spawn life_fnc_inSmoke;
+        };
+
+    }] call BIS_fnc_addStackedEventHandler; 
+};
+
 life_fnc_moveIn = compileFinal
 "
 	life_disable_getIn = false;

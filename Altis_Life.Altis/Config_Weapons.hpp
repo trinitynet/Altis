@@ -196,6 +196,7 @@ class WeaponShops {
             { "SMG_02_ACO_F", "", 15000, -1 },
             { "arifle_MXC_F", "", 30000, 5000 },
             { "HandGrenade_Stone", "Flashbang", 1700, -1 },
+            { "SmokeShellYellow", "Tear gas", 1900, -1 },
             { "optic_Arco", "", 2500, -1 },
             { "muzzle_snds_H", "", 2750, -1 }
         };
